@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 const admin = require("firebase-admin");
 
-const serviceAccount = require("./jtredy_servicekey.json");  // Make sure this file exists
+const serviceAccount = require("./servicekey.json");  // Make sure this file exists
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)

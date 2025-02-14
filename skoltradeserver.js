@@ -1,5 +1,7 @@
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+const serviceAccount = require("jtredy_servicekey.json");  // Make sure this file exists
+
 const Binance = require('binance-api-node').default
 const cors = require("cors");
 var express = require('express');
@@ -20,7 +22,11 @@ app.use(bodyParser.json());
 // }));
 
 const admin = require("firebase-admin");
-const db = require("./db");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+const db = admin.firestore();
 const {WebsocketClient} = require("binance");
 const { default: binanceApiNode, NewOrderRespType, OrderType, FuturesIncomeType } = require('binance-api-node');
 

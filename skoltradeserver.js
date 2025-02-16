@@ -23,7 +23,6 @@ app.use(bodyParser.json());
 const admin = require("firebase-admin");
 const db = require("./db");
 
-const db = admin.firestore();
 const {WebsocketClient} = require("binance");
 const { default: binanceApiNode, NewOrderRespType, OrderType, FuturesIncomeType } = require('binance-api-node');
 

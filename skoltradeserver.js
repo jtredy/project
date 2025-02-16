@@ -21,12 +21,7 @@ app.use(bodyParser.json());
 // }));
 
 const admin = require("firebase-admin");
-
-const serviceAccount = require("./servicekey.json");  // Make sure this file exists
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+const db = require("./db");
 
 const db = admin.firestore();
 const {WebsocketClient} = require("binance");
